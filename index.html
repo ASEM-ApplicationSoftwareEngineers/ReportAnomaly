@@ -1,11 +1,69 @@
 <html>
   <head>
     <title>Report an anomaly</title>
+    <script src="./anomaly.js"></script>
   </head>
   <body>
-    <h2>Report an anomaly</h2>
-    <br>
+    <h1>Report an anomaly</h1>
+    <p>This page will help you to create a anomaly report in a standard format to be sent for investigation, this will make sure the developer team will get straight to the point</p>
+    <h2>Basic information</h2>
+    <p>These steps are all mandatory</p>
     <h4>Subject</h4>
-    <textarea name="Subject" cols="100" rows="1" placeholder=""></textarea>
+    <textarea name="Subject" id="Subject" cols="100" rows="1" placeholder="Insert a very short phrase that can describe your issue" maxlength="100"></textarea>
+    <h4>Anomaly summary</h4>
+    <textarea name="Summary" id="Summary" cols="100" rows="5" placeholder="Insert a short summary to describe the anomaly, what is the intended behavior and what happened instead" maxlength="500"></textarea>
+    <h4>Reported in</h4>
+    <textarea name="SwVersion" id="SwVersion" cols="100" rows="1" placeholder="Insert the software version in the extended format, such as: 1.2.0.272" maxlength="15"></textarea>
+    <h4>Steps to replicate</h4>
+    <textarea name="Steps" id="Steps" cols="100" rows="30" placeholder="Report the detailed steps to replicate the anomaly. Describe each click, action or process that lead to the unexpected behavior, make sure to point which steps produces the unexpected output. We suggest using bullet points"></textarea>
+    <h4>Regression</h4>
+    <p>Was this operation working as expected some releases ago?</p>
+    <input type="checkbox" id="Regression" name="Regression">&nbsp;This anomaly is due to a regression
+    <p>What was the latest software version you used that did not shown this anomaly?</p>
+    <textarea name="RegressionVersion" id="RegressionVersion" cols="50" rows="1" maxlength="15" placeholder="Type the full version code such as 1.0.3.360"></textarea>
+    <h4>Product name</h4>
+    <textarea name="ProductName" id="ProductName" cols="50" rows="1" placeholder="Full name of the affected product"></textarea>
+    <h4>Customer severity</h4>
+    <p>Focus is about data loss and workaround to the issue. If a problem is big but there's a workaround, the severity will decrease</p>
+    <label for="Severity">Choose the best match:</label> 
+    <select name="Severity" id="Severity"> 
+        <option value="1">Problem is rare and does not cause los of data. Cosmetic or consistency issues</option> 
+        <option value="2">Minor but irritating issue. No permanent loss of data but slows users down</option> 
+        <option value="6">Major issue causing no permanent loss of data but wasted time. There is a workaround</option> 
+        <option value="8">Critical issue causing loss of data. There is no workaround to the issue</option> 
+        <option value="10">Extreme error causing irrevocable loss of data, software/hardware damages or crashes</option>
+    </select>
+    <h4>Customer occurrence</h4>
+    <p>Please note: this value is not how frequently YOU can cause this issue but rather how many customers will face this issue in a normal workflow when using the product</p>
+    <label for="Occurrence">Choose the best match:</label> 
+    <select name="Occurrence" id="Occurrence"> 
+        <option value="1">No impact to the external customer but may have internal impact</option> 
+        <option value="2">Few, if any customer will find this. This is not an usual path</option> 
+        <option value="4">Anomaly is frequently encountered in an uncommon workflow</option> 
+        <option value="6">Some customers will face this issue, this is a common workflow</option> 
+        <option value="10">Many customer will be affected, this is part of a required procedure</option>
+    </select>
+    <h4>Phase detected</h4>
+    <label for="Detected">This anomaly has been discovered by:</label> 
+    <select name="Detected" id="Detected"> 
+        <option value="internal">An internal technician working on a project</option> 
+        <option value="external">A final customer using the product</option>
+    </select>
+    <h2>Additional information</h2>
+    <p>These steps are not mandatory but can really help in getting to the point</p>
+    <h4>Support documentation</h4>
+    <textarea name="Documentation" id="Documentation" cols="100" rows="5" placeholder="Type in any document, help, or external resource that we can use to verify the right behavior. This can be a user manual, an help page or any external source"></textarea>
+    <h4>Customer's name</h4>
+    <textarea name="Customer" id="Customer" cols="100" rows="1" placeholder="Type in the customer(s) name that reported this anomaly, split them by a comma if more than one"></textarea>
+    <h4>Contact information</h4>
+    <p>This can be either the customer's or technician's email, it is used in case more information are needed</p>
+    <textarea name="Contact" id="Contact", cols="100" rows="1" placeholder="foo@bar.com"></textarea>
+    <h2>Generate anomaly report</h2>
+    <p>Please make sure you filled all the data, then click the "Generate" button</p>
+    <button onclick = "generateReport()" > Generate </button>
+    <h2>Result</h2>
+    <p>
+      <div id="result">You will see the output here</div>
+    </p>
   </body>
 </html>
