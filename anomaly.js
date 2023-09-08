@@ -19,7 +19,7 @@ function generateReport() {
     // Check SwVersion
     var SwVersion = document.getElementById("SwVersion").value
     console.log("SwVersion: " + SwVersion)
-    if (SwVersion.length < 10) {
+    if (SwVersion.length < 3) {
         document.getElementById("result").innerHTML += "Invalid SwVersion, 10 chars minimum<br>"
         validForm = false
     }
@@ -64,7 +64,7 @@ function generateReport() {
     var RegressionVersion = document.getElementById("RegressionVersion").value;
     console.log("Regression version: " + RegressionVersion)
     if (Regression) {
-        if (RegressionVersion.length < 5) {
+        if (RegressionVersion.length < 3) {
             document.getElementById("result").innerHTML += "Invalid RegressionVersion, 5 chars minimum<br>"
             validForm = false
         }

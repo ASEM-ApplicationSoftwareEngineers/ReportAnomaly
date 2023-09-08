@@ -2,6 +2,7 @@
   <head>
     <title>Report an anomaly</title>
     <script src="./anomaly.js"></script>
+    <link rel="stylesheet" href="./style.css">
   </head>
   <body>
     <h1>Report an anomaly</h1>
@@ -9,20 +10,20 @@
     <h2>Basic information</h2>
     <p>These steps are all mandatory</p>
     <h4>Subject</h4>
-    <textarea name="Subject" id="Subject" cols="100" rows="1" placeholder="Insert a very short phrase that can describe your issue" maxlength="100"></textarea>
+    <textarea style="resize: none;" name="Subject" id="Subject" cols="100" rows="1" placeholder="Insert a very short phrase that can describe your issue" maxlength="100"></textarea>
     <h4>Anomaly summary</h4>
-    <textarea name="Summary" id="Summary" cols="100" rows="5" placeholder="Insert a short summary to describe the anomaly, what is the intended behavior and what happened instead" maxlength="500"></textarea>
+    <textarea style="resize: none;" name="Summary" id="Summary" cols="100" rows="5" placeholder="Insert a short summary to describe the anomaly, what is the intended behavior and what happened instead" maxlength="500"></textarea>
     <h4>Reported in</h4>
-    <textarea name="SwVersion" id="SwVersion" cols="100" rows="1" placeholder="Insert the software version in the extended format, such as: 1.2.0.272" maxlength="15"></textarea>
+    <textarea style="resize: none;" name="SwVersion" id="SwVersion" cols="100" rows="1" placeholder="Insert the software version in the extended format, such as: 1.2.0.272" maxlength="15"></textarea>
     <h4>Steps to replicate</h4>
     <textarea name="Steps" id="Steps" cols="100" rows="30" placeholder="Report the detailed steps to replicate the anomaly. Describe each click, action or process that lead to the unexpected behavior, make sure to point which steps produces the unexpected output. We suggest using bullet points"></textarea>
     <h4>Regression</h4>
     <p>Was this operation working as expected some releases ago?</p>
     <input type="checkbox" id="Regression" name="Regression">&nbsp;This anomaly is due to a regression
-    <p>What was the latest software version you used that did not shown this anomaly?</p>
-    <textarea name="RegressionVersion" id="RegressionVersion" cols="50" rows="1" maxlength="15" placeholder="Type the full version code such as 1.0.3.360"></textarea>
+    <p>What was the latest product version you used that did not shown this anomaly?</p>
+    <textarea style="resize: none;" name="RegressionVersion" id="RegressionVersion" cols="50" rows="1" maxlength="15" placeholder="Type the full version code such as 1.0.3.360"></textarea>
     <h4>Product name</h4>
-    <textarea name="ProductName" id="ProductName" cols="50" rows="1" placeholder="Full name of the affected product"></textarea>
+    <textarea style="resize: none;" name="ProductName" id="ProductName" cols="50" rows="1" placeholder="Full name of the affected product"></textarea>
     <h4>Customer severity</h4>
     <p>Focus is about data loss and workaround to the issue. If a problem is big but there's a workaround, the severity will decrease</p>
     <label for="Severity">Choose the best match:</label> 
@@ -62,7 +63,7 @@
     <p>Please make sure you filled all the data, then click the "Generate" button</p>
     <button onclick = "generateReport()" > Generate </button>
     <h2>Result</h2>
-    <p>Copy the following text and send it to your contact information. Make sure to attach all the pictures, project, drawings and everything is needed to troubleshoot</p>
+    <p>Copy the following text and send it to your contact information. Make sure to attach all the pictures, project, drawings and everything may be useful to troubleshoot</p>
     <p>
       <div id="result">You will see the output here</div>
     </p>
