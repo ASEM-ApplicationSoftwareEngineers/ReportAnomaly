@@ -20,7 +20,7 @@ function generateReport() {
     var SwVersion = document.getElementById("SwVersion").value
     console.log("SwVersion: " + SwVersion)
     if (SwVersion.length < 3) {
-        document.getElementById("result").innerHTML += "Invalid SwVersion, 10 chars minimum<br>"
+        document.getElementById("result").innerHTML += "Invalid SwVersion, 3 chars minimum<br>"
         validForm = false
     }
     // Check Steps
@@ -34,7 +34,7 @@ function generateReport() {
     var ProductName = document.getElementById("ProductName").value
     console.log("Product name: " + ProductName)
     if (ProductName.length < 5) {
-        document.getElementById("result").innerHTML += "Invalid ProductName, 10 chars minimum<br>"
+        document.getElementById("result").innerHTML += "Invalid ProductName, 5 chars minimum<br>"
         validForm = false
     }
     // Check Severity
@@ -65,7 +65,7 @@ function generateReport() {
     console.log("Regression version: " + RegressionVersion)
     if (Regression) {
         if (RegressionVersion.length < 3) {
-            document.getElementById("result").innerHTML += "Invalid RegressionVersion, 5 chars minimum<br>"
+            document.getElementById("result").innerHTML += "Invalid RegressionVersion, 3 chars minimum<br>"
             validForm = false
         }
     }
